@@ -137,11 +137,13 @@ if predict:
 
     st.divider()
 
+    delay_prob = prob * 100
+    ontime_prob = (1 - prob) * 100
 
     if prob > 0.5:
-        st.error(f"⚠️ Flight Likely Delayed ({round(prob*100,2)}%)")
+        st.error(f"⚠️ Flight Likely Delayed ({delay_prob:.2f}%)")
     else:
-        st.success(f"✅ Flight Likely On Time ({round(prob*100,1)}%)")
+        st.success(f"✅ Flight Likely On Time ({ontime_prob:.2f}%)")
 
     st.info(f"🌦️ Weather in {origin}: {weather_text}")
 
