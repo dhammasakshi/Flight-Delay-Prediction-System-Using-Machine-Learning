@@ -141,7 +141,7 @@ if predict:
     if prob > 0.5:
         st.error(f"⚠️ Flight Likely Delayed ({round(prob*100,2)}%)")
     else:
-        st.success(f"✅ Flight Likely On Time ({round(prob*100,2)}%)")
+        st.success(f"✅ Flight Likely On Time ({round(prob*100,1)}%)")
 
     st.info(f"🌦️ Weather in {origin}: {weather_text}")
 
