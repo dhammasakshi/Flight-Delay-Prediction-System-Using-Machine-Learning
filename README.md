@@ -14,7 +14,7 @@ The deployed application allows users to enter flight-related details and receiv
 
 Streamlit Application:
 
-https://flight-delay-prediction-luapp2eermemahwrfuqcvxx.streamlit.app/
+https://flight-delay-prediction-system-using-machine-learning-a2bqwaco.streamlit.app/
 
 ---
 
