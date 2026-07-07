@@ -147,22 +147,69 @@ if predict:
 
     st.info(f"🌦️ Weather in {origin}: {weather_text}")
 
+    delay_percent = prob * 100
+    ontime_percent = (1 - prob) * 100
 
-    fig, ax = plt.subplots(figsize=(2.8, 2.8))
+    fig, ax = plt.subplots(figsize=(4.2, 4.2), facecolor="white")
 
-    ax.pie(
-        [1-prob, prob],
+    colors = ["#2E86DE", "#E74C3C"]   
+    wedges, texts, autotexts = ax.pie(
+        [ontime_percent, delay_percent],
         labels=["On Time", "Delayed"],
-        autopct="%1.0f%%",
+        colors=colors,
         startangle=90,
-        textprops={"fontsize": 8}
+        counterclock=False,
+        autopct="%1.1f%%",
+        pctdistance=0.78,
+        labeldistance=1.08,
+        wedgeprops=dict(width=0.38, edgecolor="white", linewidth=2),
+        textprops=dict(
+            fontsize=11,
+            fontweight="bold",
+            color="#333333"
+        )
     )
+    centre_circle = plt.Circle((0, 0), 0.60, fc="white")
+    ax.add_artist(centre_circle)
 
-    centre = plt.Circle((0,0), 0.55, fc="white")
-    fig.gca().add_artist(centre)
 
+    if prob > 0.5:
+        center_text = f"{delay_percent:.1f}%"
+        subtitle = "Delayed"
+        color = "#E74C3C"
+
+    else:
+        center_text = f"{ontime_percent:.1f}%"
+        subtitle = "On Time"
+        color = "#2E86DE"
+    ax.text(
+        0,
+        0.10,
+        subtitle,
+        ha="center",
+        va="center",
+        fontsize=12,
+        color="gray",
+        fontweight="bold"
+    )
+    ax.text(
+        0,
+        -0.08,
+        center_text,
+        ha="center",
+        va="center",
+        fontsize=18,
+        fontweight="bold",
+        color=color
+    )
+    ax.set_title(
+        "Flight Prediction",
+        fontsize=14,
+        fontweight="bold",
+        pad=18
+    )
     ax.axis("equal")
 
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig)
 
 st.markdown('</div>', unsafe_allow_html=True)
