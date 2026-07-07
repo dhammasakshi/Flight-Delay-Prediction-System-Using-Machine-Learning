@@ -1,6 +1,7 @@
-streamlit
+streamlit==1.47.1
 pandas
 matplotlib
 requests
 scikit-learn
+numpy
 pydeck
