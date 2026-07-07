@@ -83,7 +83,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("<h1 style='text-align:center;color:white;'>✈️ Flight Delay Prediction</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;color:white;'>Flight Delay Prediction</h1>", unsafe_allow_html=True)
 
 st.markdown('<div class="glass">', unsafe_allow_html=True)
 
@@ -91,12 +91,12 @@ st.markdown('<div class="glass">', unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    flight = st.selectbox("✈️ Flight", list(flights.keys()))
-    origin = st.selectbox("🛫 Origin City", city_list)
+    flight = st.selectbox("Flight", list(flights.keys()))
+    origin = st.selectbox("Origin City", city_list)
 
 with col2:
-    destination = st.selectbox("🛬 Destination City", city_list)
-    departure_time = st.time_input("⏰ Departure Time")
+    destination = st.selectbox("Destination City", city_list)
+    departure_time = st.time_input("Departure Time")
 
 
 day_map = {
@@ -104,11 +104,11 @@ day_map = {
     "Thursday":4,"Friday":5,"Saturday":6,"Sunday":7
 }
 
-day_name = st.selectbox("📅 Day", list(day_map.keys()))
+day_name = st.selectbox("Day", list(day_map.keys()))
 day = day_map[day_name]
 
 
-predict = st.button("🚀 Predict Delay")
+predict = st.button("Predict Delay")
 
 if predict:
 
