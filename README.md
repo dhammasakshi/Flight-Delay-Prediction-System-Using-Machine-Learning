@@ -68,7 +68,7 @@ The project uses a flight delay dataset containing information related to flight
 
 ---
 
-# 🔄 Project Workflow
+#  Project Workflow
 
 ## 1. Data Collection
 
